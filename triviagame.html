@@ -1,0 +1,240 @@
+<!doctype html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/game.js"></script>
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+ <h1>SPORTS TRIVIA GAME</h1>
+    <h3>Time Left</h3>
+<div><h1 id="timer"></h1></div>
+	
+     <div class="box">
+<ul>
+  <li>
+    <h3 id="q0"></h3>
+     <h4 id="op1"></h4>
+    <input type="radio" name="question0" value="A"><br>
+     <h4 id="op2"></h4>
+    <input type="radio" name="question0" value="B"><br>
+     <h4 id="op3"></h4>
+    <input type="radio" name="question0" value="C"><br>
+     <h4 id="op4"></h4>
+    <input type="radio" name="question0" value="D"><br>
+  </li>
+  <li>
+    <h3 id="q1"></h3>
+    <h4 id="op5"></h4>
+    <input type="radio" name="question1" value="A"><br>
+    <h4 id="op6"></h4>
+    <input type="radio" name="question1" value="B"><br>
+    <h4 id="op7"></h4>
+    <input type="radio" name="question1" value="C"><br>
+    <h4 id="op8"></h4>
+    <input type="radio" name="question1" value="D"><br>
+  </li>
+  <li>
+    <h3 id="q2"></h3>
+     <h4 id="op9"></h4>
+    <input type="radio" name="question2" value="A"><br>
+     <h4 id="op10"></h4>
+    <input type="radio" name="question2" value="B"><br>
+     <h4 id="op11"></h4>
+    <input type="radio" name="question2" value="C"><br>
+     <h4 id="op12"></h4>
+    <input type="radio" name="question2" value="D"><br>
+  </li>
+   <li>
+    <h3 id="q3"></h3>
+     <h4 id="op13"></h4>
+    <input type="radio" name="question3" value="A"><br>
+     <h4 id="op14"></h4>
+    <input type="radio" name="question3" value="B"><br>
+     <h4 id="op15"></h4>
+    <input type="radio" name="question3" value="C"><br>
+     <h4 id="op16"></h4>
+    <input type="radio" name="question3" value="D"><br>
+  </li>
+  <li>
+    <h3 id="q4"></h3>
+     <h4 id="op17"></h4>
+    <input type="radio" name="question4" value="A"><br>
+     <h4 id="op18"></h4>
+    <input type="radio" name="question4" value="B"><br>
+     <h4 id="op19"></h4>
+    <input type="radio" name="question4" value="C"><br>
+     <h4 id="op20"></h4>
+    <input type="radio" name="question4" value="D"><br>
+  </li>
+  <li>
+    <h3 id="q5"></h3>
+     <h4 id="op21"></h4>
+    <input type="radio" name="question5" value="A"><br>
+     <h4 id="op22"></h4>
+    <input type="radio" name="question5" value="B"><br>
+     <h4 id="op23"></h4>
+    <input type="radio" name="question5" value="C"><br>
+     <h4 id="op24"></h4>
+    <input type="radio" name="question5" value="D"><br>
+  </li>
+  <li>
+    <h3 id="q6"></h3>
+     <h4 id="op25"></h4>
+    <input type="radio" name="question6" value="A"><br>
+     <h4 id="op26"></h4>
+    <input type="radio" name="question6" value="B"><br>
+     <h4 id="op27"></h4>
+    <input type="radio" name="question6" value="C"><br>
+     <h4 id="op28"></h4>
+    <input type="radio" name="question6" value="D"><br>
+  </li>
+</ul>
+
+
+<button id="button" ><h1>View Results</h1></button>
+<div id="score"><h1></h1></div>
+<div id="incorrect"><h1></h1></div>
+<div id="unanswered"><h1></h1></div>
+
+
+
+
+</div>
+</div>
+<script>
+$(document).ready(function() {
+var number = 60;
+var intervalId;
+var question = ["Who was the shortest player ever to play in the NBA?", "Kareem Abdul-Jabbar played 20 seasons in which sport?", "What NFL team does Tom Brady play for?",
+"What sport do you hit off of a tee", "Where is the Pro Bowl normally played every year?", "How many innings are in a Baseball game?", "What state is the Baseball Hall of Fame located in?"
+];
+var options = ["Tyrone Bogues", "Micheal Jordan", "Allen Iverson", "Jason Kidd", "Baseball", "Golf", "Basketball", "Football", "Cleveland Browns", "New England Patriots", "Miami Dolphins", "Oakland Raiders",
+"Hockey", "Golf", "Football", "Tennis", "Detroit", "Houstan", "San Diego", "Hawaii", "5", "6", "7", "9", "Florida", "Ohio", "Massachusettes", "New York",];
+$("#q0").html(question[0]);
+$("#q1").html(question[1]);
+$("#q2").html(question[2]);
+$("#q3").html(question[3]);
+$("#q4").html(question[4]);
+$("#q5").html(question[5]);
+$("#q6").html(question[6]);
+$("#op1").html(options[0]);
+$("#op2").html(options[1]);
+$("#op3").html(options[2]);
+$("#op4").html(options[3]);
+$("#op5").html(options[4]);
+$("#op6").html(options[5]);
+$("#op7").html(options[6]);
+$("#op8").html(options[7]);
+$("#op9").html(options[8]);
+$("#op10").html(options[9]);
+$("#op11").html(options[10]);
+$("#op12").html(options[11]);
+$("#op13").html(options[12]);
+$("#op14").html(options[13]);
+$("#op15").html(options[14]);
+$("#op16").html(options[15]);
+$("#op17").html(options[16]);
+$("#op18").html(options[17]);
+$("#op19").html(options[18]);
+$("#op20").html(options[19]);
+$("#op21").html(options[20]);
+$("#op22").html(options[21]);
+$("#op23").html(options[22]);
+$("#op24").html(options[23]);
+$("#op25").html(options[24]);
+$("#op26").html(options[25]);
+$("#op27").html(options[26]);
+$("#op28").html(options[27]);
+	
+	$("#stop").on("click", stop);
+$("#resume").on("click", run);
+function run() {
+      intervalId = setInterval(decrement, 1000);
+    }
+ function decrement() {
+      number--;
+      $("#timer").html("<h2>" + number + "</h2>");
+      if (number === 0) {
+        stop();
+       window.location.href = "result.html";
+      }
+    }
+function stop() {
+      clearInterval(intervalId);
+    }
+    run();
+
+
+});
+var answers = ["A","C","B","B","D","D","D"], 
+    tot = answers.length;
+
+
+function getCheckedValue( radioName ){
+    var radios = document.getElementsByName( radioName ); 
+    for(var y=0; y<radios.length; y++)
+      if(radios[y].checked) return radios[y].value;
+}
+
+function getScore(){
+  var score = 0;
+  
+  for (var i=0; i<tot; i++)
+    if(getCheckedValue("question"+i)===answers[i]) score += 1; 
+  return score;
+
+
+}
+
+
+function returnScore(){
+
+	$("#score").html("<h1>"+"YOU GOT "+getScore()+"/"+tot+" QUESTIONS CORRECT!"+"</h1>");
+  
+}
+
+
+
+
+$("#button").on("click", function(){
+   
+	returnScore();
+	//returnIncorrect();
+	//returnUnAnswered();
+
+	
+
+
+});
+
+//function getIncorrect(){
+	//var incorrect = 0;
+	//for(var i=0; i<tot; i++)
+		//if(getCheckedValue("question"+i)!==answers[i] incorrect += 1)
+			//return incorrect;
+//}
+
+//function returnIncorrect(){
+	//$("#incorrect").html(getIncorrect());
+//}
+
+//function getUnanswered(radioName){
+	//var unAnswered = 0;
+//var radios = document.getElementsByName( radioName );  
+    //for(var y=0; y<radios.length; y++)
+      //if(radios[y].checked) return radios[y].value;
+      //else{
+      	//unAnswered += 1;
+      	//return unAnswered;
+
+
+      //}
+//}
+
+//function returnUnAnswered(){
+	//$("#unanswered").html(getUnAnswered);
+//}
+</script>
+</body>
+</html>
